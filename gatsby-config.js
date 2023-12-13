@@ -1,18 +1,15 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
-
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `My First Project`,
+    description: `This is going to be my very first project toward graduation.`,
+    author: `Rajan Shrestha`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    introduction : {
+      owner : `Rajan`,
+      businessType : `Convenience Store`,
+      company : `Holy Hill Fuel Station`,
+      location : `N128W21760 Holy Hill Road, WI`
+    }
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -23,6 +20,14 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceID: `${process.env.SPACE_ID}`,
+        accessToken: `${process.env.ACCESS_TOKEN}`
+      },
+    },
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -36,7 +41,7 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/Builidng.jpg`, // This path is relative to the root of the site.
       },
     },
   ],
